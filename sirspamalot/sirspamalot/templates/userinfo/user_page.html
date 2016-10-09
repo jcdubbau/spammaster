@@ -1,0 +1,41 @@
+{% extends 'userinfo/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  {{ block.super }} - Home
+{% endblock %}
+
+{% block content_classes %}
+    {{block.super}} index-content
+{% endblock content_classes %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>{{tweeter}}</h2>
+    </div>
+
+  </div>
+  {% for message in tweets %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+<!-- Start message display panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title pull-left">
+              <i class="fa fa-commenting" aria-hidden="true"></i>
+          </div>
+          <div class="pull-right"><small>{{message.date}}</small></div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="panel-body"> {{message}}</div>
+      </div>
+<!-- End message display panel -->
+        
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'userinfo/base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}
+  {{ block.super }} - Create a Message
+{% endblock %}
+
+{% block content_classes %}
+    {{block.super}} index-content
+{% endblock content_classes %}
+
+{% block content %}
+
+ 
+  <div class="row">
+    <div class="col-md-8">
+      <form action="" method="POST">
+        {% csrf_token %}
+      
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Post</button>
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,25 @@
+{% extends "userinfo/base.html" %}
+
+
+{%block content %}
+<div class="jumbotron">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 style="color:black;background:white;text-align:center;padding-top:70px;">Welcome to SpamMaster3000</h2><br><br><br><br>
+            
+        </h2>
+<p style="color:black">SpamMaster3000 is the internet's #1 source for needless information.</p><br>
+<p style="color:black">Not only can you view all of the Spam posted by other members but you can post Spam Too!!</p><br><br>
+        <div id="registration_form">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+
+      <input type="submit" class="btn btn-danger btn-large" href="/register/" value="Click Here to Sign Up for a Free Account!!!"/>          
+
+        </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

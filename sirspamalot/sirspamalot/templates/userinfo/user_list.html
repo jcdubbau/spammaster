@@ -1,0 +1,43 @@
+{% extends 'userinfo/base.html' %}
+{% load staticfiles %}
+{% load gravatar_tags %}
+
+{% block title %}
+  {{ block.super }} - Home
+{% endblock %}
+
+{% block content_classes %}
+    {{block.super}} index-content
+{% endblock content_classes %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>User List</h2>
+    </div>
+  </div>
+  {% for x in user_list %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="profile-pic">
+              <img src="{{ x|gravatar:100 }}" />
+            </div>
+            <div class="panel-heading">
+              <h3 class="panel-title">{{x.get_username}}</h3>
+            </div>
+            <div class="user-message-body-wrapper">
+              <div class="panel-body">
+                <a href="http://localhost:8000/users/{{x.pk}}/">Click to see all the spam sent by {{x.get_username}}</a>
+                </a>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+
+
+
+{% endblock %}

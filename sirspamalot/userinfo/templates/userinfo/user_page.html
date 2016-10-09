@@ -1,0 +1,45 @@
+{% extends 'userinfo/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  {{ block.super }} - Home
+{% endblock %}
+
+{% block content_classes %}
+    {{block.super}}
+{% endblock content_classes %}
+
+{% block content %}
+
+<br/><br/><br/><br/><br/><br/><br/>
+<img src="{% static 'images/awesome_profile.png' %}"></img>
+<h1>User Name: {{ spammer.get_full_name }}</h1>
+<h1>Email: {{ spammer.email }}</h1>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>{{spammer}}</h2>
+    </div>
+
+  </div>
+  {% for message in spam %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+<!-- Start message display panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title pull-left">
+              <i class="fa fa-commenting" aria-hidden="true"></i>
+          </div>
+          <div class="pull-right"><small>{{spam.date}}</small></div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="panel-body"> {{spam}}</div>
+      </div>
+<!-- End message display panel -->
+
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

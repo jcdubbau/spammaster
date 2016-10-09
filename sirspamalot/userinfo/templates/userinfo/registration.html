@@ -1,0 +1,29 @@
+{% extends "userinfo/base.html" %}
+
+
+{%block content %}
+    
+<div class="container">
+  <div class="jumbotron">
+    <div class="col-md-8 col-md-offset-2"><br><br>
+      <h2 style="color:black;background:white;text-align:center;padding-top:70px;">Welcome to SpamMaster3000</h2><br><br><br><br>
+       <p style="color:black">SpamMaster3000 is the internet's #1 source for needless information.</p><br>
+    </div>     
+ </div>
+</div>
+  <div class="container">
+    <div class="row" id=SignUpFormButton>
+      <div class="col-md-6 col-md-offset-2" style="text-align: right;">
+         <form action="" method="POST"><br>
+            {% csrf_token %}
+            {% for field in form %}
+                {% include "userinfo/_form_input.html" %}
+            {% endfor %}         
+           <br>
+          <button class="btn btn-danger" type="submit">Click Here to Register!!!</button>
+       </form>
+      </div>
+    </div>
+  </div>
+    
+{% endblock content %}

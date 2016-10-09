@@ -1,0 +1,82 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+           Spam in a Can!!!
+        {% endblock title %}
+    </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://use.fontawesome.com/a04d9e4c1c.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'tweet_messages/styles.css' %}" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tweet-clone-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="{% url 'tweet_messages:index' %}"><img src="{% static 'images/awesome_tweet.png'%}" height="50px" weight="50px">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="tweet-clone-nav">
+
+              <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'tweet_messages:user_list' %}">Users</a></li>
+                    <li><a href="{% url 'tweet_messages:create_message' %}">Create Post</a></li>
+                    <li><a href="http://localhost:8000/users/{{request.user.pk}}/">My Posts</a></li>
+                    <li><a href="{% url 'tweet_messages:logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'tweet_messages:register' %}">Sign Up</a></li>
+                    <li><a href="{% url 'tweet_messages:login' %}">Login</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <div class="container">
+     <div class="{% block content_classes %}main-content{% endblock content_classes %}">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </div>
+    <footer class="page-footer">
+        <hr>
+        <div class="container">
+            &copy; put name | here
+        </div>
+    </footer>
+
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+
