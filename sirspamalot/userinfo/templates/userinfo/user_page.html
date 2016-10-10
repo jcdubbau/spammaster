@@ -23,16 +23,13 @@
       <h2>User ID:  {{spammer}}</h2>
     </div>
      <div class= "container">
-   <div class= "col-xs-10" style= "border:4px dotted black;padding-top: 15px;padding-bottom: 15px;">
+   <div class= "col-xs-10" style= "border: 1px solid #000;;padding-top: 15px;padding-bottom: 15px;">
 <div class="row"></div>
   {% for message in spam %}
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-     <
-
-      
-        <div class="panel-heading" style="color: red;">
-          <div class="panel-title pull-left">
+     
+     <div class="panel-title pull-left">
               
           </div>
           <div class="pull-right"><small>{{spam.date}}</small></div>
@@ -45,5 +42,4 @@
     </div>
   </div>
   {% endfor %}
-
 {% endblock %}

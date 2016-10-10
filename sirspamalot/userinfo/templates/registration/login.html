@@ -1,14 +1,22 @@
 {% extends "userinfo/base.html" %}
 
 {% block content %}
+
+<br><br><br><br><br>
+
 <h2>Login</h2>
 
     {% if form.errors %}
-    <div class="alert alert-danger">
-        Incorrect username or password.
+    <div class="container">
+    <div class="row">
+    <div class="col.xs-7">
+     <strong>You Entered an Incorrect Password or Username<br>
+      Please try agian</strong>
     </div>
-    {% endif %}
-    <form action="{% url 'userinfo:login' %}" method="POST"><br><br><br><br><br><br>
+</div>
+
+    {% endif %}<br>
+    <form action="{% url 'userinfo:login' %}" method="POST"><br><br><br>
         {% csrf_token %}
         {% for field in form %}
             {%  include "userinfo/_form_input.html" %}
