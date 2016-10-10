@@ -1,5 +1,4 @@
-#navbar-default {
-    background-color: #2C3E50
+
 
 registration_form .help-block {
     display: none;
@@ -38,26 +37,11 @@ body {
 .index-content {
     margin-top: 40vh
     min-height: auto;
-    background-color: #fff;
-}
+   }
 
-.home-image {
-    overflow: hidden;
-    width: 300px;
-    height: 225px;
-}
 
-.profile-pic {
-    float: left;
-    background-color: #ccc;
-    margin-right: 20px;
-    padding: 0px;
-}
 
-.user-message-body-wrapper .panel-body {
-    padding-top: 15px;
-    padding-bottom: 0px;
-}
+
 
 
 

@@ -12,31 +12,35 @@
 {% block content %}
 
 <br/><br/><br/><br/><br/><br/><br/>
-<img src="{% static 'images/awesome_profile.png' %}"></img>
-<h1>User Name: {{ spammer.get_full_name }}</h1>
-<h1>Email: {{ spammer.email }}</h1>
+<div class= "containter">
+<div class= "row">
+<div class= "col-xs-10" style= "border:4px dotted black;padding-top: 15px;padding-bottom: 15px;">
+<img src="{% static 'images/awesome_profile.png' %}" width=85 height=85></img>
+<h3>Full Name: {{ spammer.get_full_name }}</h3>
+<h4>Email: {{ spammer.email }}</h4>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h2>{{spammer}}</h2>
+      <h2>User ID:  {{spammer}}</h2>
     </div>
-
-  </div>
+     <div class= "container">
+   <div class= "col-xs-10" style= "border:4px dotted black;padding-top: 15px;padding-bottom: 15px;">
+<div class="row"></div>
   {% for message in spam %}
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
+     <
 
-<!-- Start message display panel -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
+      
+        <div class="panel-heading" style="color: red;">
           <div class="panel-title pull-left">
-              <i class="fa fa-commenting" aria-hidden="true"></i>
+              
           </div>
           <div class="pull-right"><small>{{spam.date}}</small></div>
           <div class="clearfix"></div>
         </div>
         <div class="panel-body"> {{spam}}</div>
       </div>
-<!-- End message display panel -->
+
 
     </div>
   </div>
