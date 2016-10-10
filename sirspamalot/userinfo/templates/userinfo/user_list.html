@@ -13,28 +13,26 @@
 {% block content %}
 <div class="container">
    <div class="jumbotron">
-    <div class="col-md-8 col-md-offset-1"><br><br>
+    <div class="col-xs-8 style="background-color: black;"><br><br>
       <h2>Registered Spammers</h2>
     </div>
   </div>
 </div>
-      {% for x in user_list %}
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2" style="text-align:left;">
+      {% for x in user_list %}<br></div>
+<div class= "container">  
+<div class="row"></div>
+    <div class="col-xs-6"  style="background-color: white; text-align:left;border:4px dotted black;padding-top: 15px;padding-bottom: 15px;">
 
-  <h3>    {{x.get_username}}</h3>
-  <img src="{% static 'images/awesome_profile.png' %}"></img>
+  <h3>{{x.get_username}}</h3>
+<div class= "pic" sytle= "font-size: 15px;">
+       <img src="{% static 'images/awesome_profile.png' %}" width=100px height= 100px></img>
+        <a href="http://localhost:8000/users/{{x.id}}/" >View {{x.get_username}}'s Spam</a>
+</div>
+</div> 
+   </div>
+</div>
     </div>
-  </div>
-    <div class="user-message-body-wrapper">
-      <div class="panel-body">
-        <a href="http://localhost:8000/users/{{x.id}}/">View {{x.get_username}}'s Spam</a>
-      </div>
-    </div>
-  </div>
-    </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
 
 
 

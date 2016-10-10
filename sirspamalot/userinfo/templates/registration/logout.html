@@ -1,13 +1,18 @@
 {% extends "userinfo/base.html" %}
 
 {% block content %}
-    <h2>
+<div class= "container"<div>
+<div class= "row"<div>
+<div class="col-xs-8 offset-xs-2" style= "align-text: center;">
+    <br><br><br><br><br><h2>
         Logout
     </h2>
     <p>
-        You have been logged out. You can <a href="{% url 'userinfo:login' %}">login again</a>.
+        You have been logged out. You can <a href="{% url 'userinfo:login' %}">Click To Login</a>.
     </p>
-
+</div>
+</div>
+</div>
 {% endblock content %}
 
 
